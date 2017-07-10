@@ -1,0 +1,9 @@
+<html>
+<body>
+<h1>Delete {{catalog.name}}?</h1>
+<form method='POST' enctype='multipart/form-data' action='{{url_for('deleteCatalog', catalog_id = catalog.id)}}'>
+    <input type='submit' value='Yes, delete please'>
+</form>
+<a href='{{url_for('showAllCatalogs')}}>Cancel</a>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<head>
+    <link rel=stylesheet type=text/css href="{{url_for('static', filename='main.css')}}">
+</head>
+<body>
+    {% if 'username' not in session %}
+            <a href="{{url_for('showLogin')}}">Log in</a>
+        {% else %}
+            <a href="{{url_for('disconnect')}}">Log out</a>
+        {% endif %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages: %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <div>
+        <a href='{{url_for('createNewCatalog')}}'>Create a new Catalog</a>
+    </div>
+    <div>
+        {% for catalog in catalogs: %}
+            {{catalog.name}}
+        {% endfor %}
+    </div>
+</body>
+</html>

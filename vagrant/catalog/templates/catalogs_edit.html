@@ -1,0 +1,15 @@
+<html>
+<body>
+    <div>
+        <h1>
+            {{catalog.name}}
+        </h1>
+    </div>
+    <form method='POST' enctype='multipart/form-data' action='{{url_for('editCatalog', catalog_id = catalog.id)}}'>
+        <h2>New Catalog Name:</h2>
+        <input name='editCatalogName' type='text' placeholder = '{{catalog.name}}'/>
+        <input type='submit' value='Rename'>
+    </form>
+    <a href='{{url_for('showAllCatalogs')}}'>Cancel</a>
+</body>
+</html>
